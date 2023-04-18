@@ -6,6 +6,7 @@
   , "effect"
   , "foldable-traversable"
   , "functions"
+  , "integers"
   , "maybe"
   , "nullable"
   , "prelude"

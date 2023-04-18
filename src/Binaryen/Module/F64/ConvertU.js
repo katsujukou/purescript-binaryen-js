@@ -1,0 +1,12 @@
+// f64.convert_u
+// i32(value: ExpressionRef): ExpressionRef;
+export const _i32 = function (Tuple, value, m) {
+  const expr = m.f64.convert_u.i32(value);
+  return Tuple(m)(expr);
+}
+
+// i64(value: ExpressionRef): ExpressionRef;
+export const _i64 = function (Tuple, value, m) {
+  const expr = m.f64.convert_u.i64(value);
+  return Tuple(m)(expr);
+}

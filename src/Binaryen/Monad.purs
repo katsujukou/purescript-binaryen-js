@@ -41,8 +41,8 @@ mkBinaryen = Binaryen
 runBinaryen :: forall a. Binaryen a -> Effect a
 runBinaryen (Binaryen m) = snd <$> m _createModule
 
-evalBinaryen :: forall a. Binaryen a -> Effect Module
-evalBinaryen (Binaryen m) = fst <$> m _createModule
+execBinaryen :: forall a. Binaryen a -> Effect Module
+execBinaryen (Binaryen m) = fst <$> m _createModule
 
 foreign import _createModule :: Module
 

@@ -6,5 +6,8 @@
   },
   "dependencies": {
     "binaryen": "^112.0.0"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.21.4"
   }
 }
