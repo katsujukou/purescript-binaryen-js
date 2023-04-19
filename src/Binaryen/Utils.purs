@@ -4,7 +4,7 @@ import Prelude
 
 import Binaryen.Monad (Binaryen, Module, mkBinaryen)
 import Data.Tuple.Nested (type (/\), (/\))
-import Effect.Uncurried (EffectFn2, EffectFn3, EffectFn4, EffectFn5, EffectFn6, EffectFn7, runEffectFn2, runEffectFn3, runEffectFn4, runEffectFn5, runEffectFn6, runEffectFn7)
+import Effect.Uncurried (EffectFn2, EffectFn3, EffectFn4, EffectFn5, EffectFn6, EffectFn7, EffectFn8, runEffectFn2, runEffectFn3, runEffectFn4, runEffectFn5, runEffectFn6, runEffectFn7, runEffectFn8)
 
 type BinaryenFn0 r = EffectFn2 (forall s t. s -> t -> s /\ t) Module (Module /\ r)
 
@@ -17,6 +17,8 @@ type BinaryenFn3 a b c r = EffectFn5 (forall s t. s -> t -> s /\ t) a b c Module
 type BinaryenFn4 a b c d r = EffectFn6 (forall s t. s -> t -> s /\ t) a b c d Module (Module /\ r)
 
 type BinaryenFn5 a b c d e r = EffectFn7 (forall s t. s -> t -> s /\ t) a b c d e Module (Module /\ r)
+
+type BinaryenFn6 a b c d e f r = EffectFn8 (forall s t. s -> t -> s /\ t) a b c d e f Module (Module /\ r)
 
 runBinaryenFn0 :: forall a r. BinaryenFn0 r -> Binaryen r
 runBinaryenFn0 f = mkBinaryen $ \m -> runEffectFn2 f (/\) m
@@ -35,3 +37,6 @@ runBinaryenFn4 f a b c d = mkBinaryen $ \m -> runEffectFn6 f (/\) a b c d m
 
 runBinaryenFn5 :: forall a b c d e r. BinaryenFn5 a b c d e r -> a -> b -> c -> d -> e -> Binaryen r
 runBinaryenFn5 f a b c d e = mkBinaryen $ \m -> runEffectFn7 f (/\) a b c d e m
+
+runBinaryenFn6 :: forall a b c d e f r. BinaryenFn6 a b c d e f r -> a -> b -> c -> d -> e -> f -> Binaryen r
+runBinaryenFn6 f a b c d e f' = mkBinaryen $ \m -> runEffectFn8 f (/\) a b c d e f' m
