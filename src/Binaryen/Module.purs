@@ -1,5 +1,6 @@
 module Binaryen.Module
-  ( ExpressionRef
+  ( ExportRef
+  , ExpressionRef
   , block
   , br
   , br_if
@@ -18,6 +19,7 @@ import Binaryen.Utils (BinaryenFn2, BinaryenFn3, BinaryenFn4, runBinaryenFn2, ru
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toNullable)
 
+data ExportRef
 data ExpressionRef
 
 -- block(label: string | null, children: ExpressionRef[], resultType?: Type): ExpressionRef;
